@@ -36,7 +36,7 @@ export const PreviewBelow: React.FC<ImageCarouselProps> = (props) => {
 };
 
 export const FeaturedImageLeft: React.FC<ImageCarouselProps> = (props) => {
-   const { pageContext } = useSitecore();
-   const isEditing = pageContext.pageEditing || false;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing || false;
   return <ImageCarouselFeaturedImageLeft {...props} isPageEditing={isEditing} />;
 };

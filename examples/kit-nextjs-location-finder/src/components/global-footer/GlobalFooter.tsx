@@ -44,7 +44,7 @@ export const BlackCompactVariant: React.FC<GlobalFooterProps> = (props) => {
 
 export const BlackLargeVariant: React.FC<GlobalFooterProps> = (props) => {
   const { pageContext } = useSitecore();
-   const isEditing = pageContext.pageEditing;
+  const isEditing = pageContext.pageEditing;
   const { t } = useI18n();
   const dictionary = {
     FOOTER_EmailSubmitLabel: t(dictionaryKeys.FOOTER_EmailSubmitLabel),
