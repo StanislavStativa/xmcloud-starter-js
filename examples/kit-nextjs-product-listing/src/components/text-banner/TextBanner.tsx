@@ -6,7 +6,6 @@ import { TextBannerBlueTitleRight } from './TextBannerBlueTitleRight.dev';
 
 import { TextBanner01 as TextBannerVariant01 } from './TextBanner01.dev';
 import { TextBanner02 as TextBannerVariant02 } from './TextBanner02.dev';
-import { is } from 'ramda';
 // Data source checks are done in the child components
 
 // Default display of the component

@@ -11,27 +11,27 @@ import { LocationSearchTitleZipCentered } from './LocationSearchTitleZipCentered
 // Default display of the component
 
 export const Default: React.FC<LocationSearchProps> = (props) => {
-const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing || false;
   return <LocationSearchDefault {...props} isPageEditing={isPageEditing} />;
 };
 export const MapRight: React.FC<LocationSearchProps> = (props) => {
-const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing || false;
   return <LocationSearchMapRight {...props} isPageEditing={isPageEditing} />;
 };
 export const MapTopAllCentered: React.FC<LocationSearchProps> = (props) => {
-const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing || false;
   return <LocationSearchMapTopAllCentered {...props} isPageEditing={isPageEditing} />;
 };
 export const MapRightTitleZipCentered: React.FC<LocationSearchProps> = (props) => {
-const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing || false;
   return <LocationSearchMapRightTitleZipCentered {...props} isPageEditing={isPageEditing} />;
 };
 export const MapLeftTitleZipCentered: React.FC<LocationSearchProps> = (props) => {
-const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing || false;
   return <LocationSearchTitleZipCentered {...props} isPageEditing={isPageEditing} />;
 };

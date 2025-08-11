@@ -39,8 +39,8 @@ const ctaButtonVariants = cva('text-sm font-heading font-medium', {
 });
 
 export const Default: React.FC<CtaBannerProps> = (props) => {
-const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing || false;
   const { fields, params } = props;
 
   if (fields) {
