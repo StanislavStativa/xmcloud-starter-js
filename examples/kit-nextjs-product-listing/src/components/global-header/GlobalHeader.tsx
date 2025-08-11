@@ -8,7 +8,7 @@ import { GlobalHeaderCentered } from './GlobalHeaderCentered.dev';
 // Default display of the component
 export const Default: React.FC<GlobalHeaderProps> = (props) => {
   const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const isPageEditing = pageContext.pageEditing || false;
 
   return <GlobalHeaderDefault {...props} isPageEditing={isPageEditing} />;
 };
@@ -16,7 +16,7 @@ export const Default: React.FC<GlobalHeaderProps> = (props) => {
 // Variants
 export const Centered: React.FC<GlobalHeaderProps> = (props) => {
   const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const isPageEditing = pageContext.pageEditing || false;
 
   return <GlobalHeaderCentered {...props} isPageEditing={isPageEditing} />;
 };
