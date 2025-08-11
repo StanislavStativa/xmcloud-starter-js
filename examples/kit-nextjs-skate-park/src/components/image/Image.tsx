@@ -62,8 +62,8 @@ export const Banner: React.FC<ImageProps> = ({ params, fields }) => {
 };
 
 export const Default: React.FC<ImageProps> = (props) => {
-const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing || false;
   const { fields, params } = props;
   const { styles, RenderingIdentifier: id } = params;
 

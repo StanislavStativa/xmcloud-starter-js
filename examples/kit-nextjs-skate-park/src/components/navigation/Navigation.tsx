@@ -46,8 +46,8 @@ const NavigationListItem: React.FC<NavigationListItemProps> = ({
   relativeLevel,
 }) => {
   const [isActive, setIsActive] = useState(false);
-const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing || false;
 
   const classNames = [...fields.Styles, `rel-level${relativeLevel}`, isActive ? 'active' : ''].join(
     ' '
@@ -82,8 +82,8 @@ const { pageContext } = useSitecore();
 
 export const Default = ({ params, fields }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-const { pageContext } = useSitecore();
-  const isPageEditing = pageContext.pageEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing || false;
   const { styles, RenderingIdentifier: id } = params;
 
   if (!Object.values(fields).length) {
