@@ -13,7 +13,7 @@ import { dictionaryKeys } from '@/variables/dictionary';
 // Default display of the component
 export const Default: React.FC<GlobalFooterProps> = (props) => {
   const { pageContext } = useSitecore();
-  const isEditing = pageContext.pageEditing;
+  const isEditing = pageContext.pageEditing || false;
   const { t } = useI18n();
   const dictionary = {
     FOOTER_EmailSubmitLabel: t(dictionaryKeys.FOOTER_EmailSubmitLabel),
