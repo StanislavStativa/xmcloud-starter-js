@@ -18,7 +18,7 @@ export const ImageCarouselEditMode = (
   if (fields) {
     return (
       <div
-        className={cn(containerClasses, { [props?.params?.styles]: props?.params?.styles })}
+        className={cn(containerClasses, { [props?.params?.styles || '']: props?.params?.styles })}
         data-component="ImageCarouselEditMode"
         data-class-change
       >

@@ -3,12 +3,18 @@
  */
 import React, { JSX } from 'react';
 import Head from 'next/head';
-import { Placeholder, Field, DesignLibrary, Page } from '@sitecore-content-sdk/nextjs';
+import {
+  Placeholder,
+  Field,
+  DesignLibrary,
+  RenderingType,
+  LayoutServiceData,
+} from '@sitecore-content-sdk/nextjs';
 import Scripts from 'src/Scripts';
 import SitecoreStyles from 'src/components/content-sdk/SitecoreStyles';
 
 interface LayoutProps {
-  page: Page;
+  layoutData: LayoutServiceData;
 }
 
 interface RouteFields {
@@ -16,16 +22,17 @@ interface RouteFields {
   Title?: Field;
 }
 
-const Layout = ({ page }: LayoutProps): JSX.Element => {
-  const { layout, mode } = page;
-  const { route } = layout.sitecore;
+const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
+  const { route } = layoutData.sitecore;
   const fields = route?.fields as RouteFields;
-  const mainClassPageEditing = mode.isEditing ? 'editing-mode' : 'prod-mode';
+  const mainClassPageEditing = layoutData.sitecore.context.pageEditing
+    ? 'editing-mode'
+    : 'prod-mode';
 
   return (
     <>
       <Scripts />
-      <SitecoreStyles layoutData={layout} />
+      <SitecoreStyles layoutData={layoutData} />
       <Head>
         <title>{fields?.Title?.value?.toString() || 'Page'}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -33,8 +40,8 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
 
       {/* root placeholder for the app, which we add components to using route data */}
       <div className={mainClassPageEditing}>
-        {mode.isDesignLibrary ? (
-          <DesignLibrary />
+        {layoutData.sitecore.context.renderingType === RenderingType.Component ? (
+          <DesignLibrary {...layoutData} />
         ) : (
           <>
             <header>

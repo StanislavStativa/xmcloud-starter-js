@@ -9,21 +9,21 @@ import { ProductListingSlider } from './ProductListingSlider.dev';
 
 // Default display of the component
 export const Default: React.FC<ProductListingProps> = (props) => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing || false;
   return <ProductListingDefault {...props} isPageEditing={isEditing} />;
 };
 
 // Variants
 export const ThreeUp: React.FC<ProductListingProps> = (props) => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing || false;
   return <ProductListingThreeUp {...props} isPageEditing={isEditing} />;
 };
 
 // Variants
 export const Slider: React.FC<ProductListingProps> = (props) => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing || false;
   return <ProductListingSlider {...props} isPageEditing={isEditing} />;
 };

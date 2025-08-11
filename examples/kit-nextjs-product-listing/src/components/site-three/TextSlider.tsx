@@ -11,7 +11,7 @@ type TextSliderProps = {
 };
 
 export const Default = (props: TextSliderProps) => {
-  const { page } = useSitecore();
+  const { pageContext } = useSitecore();
   const containerRef = useRef<HTMLDivElement>(null);
   const measureRef = useRef<HTMLDivElement>(null);
   const [repeatCount, setRepeatCount] = useState(1);
@@ -22,7 +22,7 @@ export const Default = (props: TextSliderProps) => {
   }, [props.fields.Text?.value]);
 
   useEffect(() => {
-    if (page.mode.isEditing) {
+    if (pageContext.pageEditing) {
       return;
     }
 
@@ -54,7 +54,7 @@ export const Default = (props: TextSliderProps) => {
     window.addEventListener('resize', calculateRepeats);
 
     return () => window.removeEventListener('resize', calculateRepeats);
-  }, [phrase, page.mode.isEditing]);
+  }, [phrase, pageContext.pageEditing]);
 
   return (
     <div
@@ -70,7 +70,7 @@ export const Default = (props: TextSliderProps) => {
         {phrase}
       </h2>
       {/* In editing mode, we want to show the text as is */}
-      {(ready || page.mode.isEditing) && (
+      {(ready || pageContext.pageEditing) && (
         <div
           className="flex absolute top-1/2 -translate-y-1/2 animate-marquee will-change-transform whitespace-nowrap uppercase"
           style={{

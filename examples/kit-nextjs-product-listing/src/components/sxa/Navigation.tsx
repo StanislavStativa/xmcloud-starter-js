@@ -51,8 +51,8 @@ const getLinkField = (props: NavigationProps): LinkField => ({
 
 export const Default = (props: NavigationProps): JSX.Element => {
   const [isOpenMenu, openMenu] = useState(false);
-  const { page } = useSitecore();
-  const { mode } = page;
+  const { pageContext } = useSitecore();
+  const { mode } = pageContext;
   const styles =
     props.params != null
       ? `${props.params.GridParameters ?? ''} ${props.params.Styles ?? ''}`.trimEnd()
@@ -68,7 +68,7 @@ export const Default = (props: NavigationProps): JSX.Element => {
   }
 
   const handleToggleMenu = (event?: React.MouseEvent<HTMLElement>, flag?: boolean): void => {
-    if (event && mode.isEditing) {
+    if (event && mode === 'editing') {
       event.preventDefault();
     }
 
@@ -175,8 +175,8 @@ export const Header = (): JSX.Element => {
 };
 
 const NavigationList = (props: NavigationProps) => {
-  const { page } = useSitecore();
-  const { mode } = page;
+  const { pageContext } = useSitecore();
+  const { mode } = pageContext;
   const [active, setActive] = useState(false);
   const classNameList = `${props.fields.Styles.concat('rel-level' + props.relativeLevel).join(
     ' '
@@ -202,7 +202,7 @@ const NavigationList = (props: NavigationProps) => {
       >
         <ContentSdkLink
           field={getLinkField(props)}
-          editable={mode.isEditing}
+          editable={mode === 'editing'}
           onClick={props.handleClick}
           prefetch={false}
         >

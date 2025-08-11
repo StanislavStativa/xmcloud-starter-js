@@ -3,10 +3,12 @@ import { getImageProps } from 'next/image';
 
 const getImageUrl = (imageField: ImageField) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { page } = useSitecore();
+  const { pageContext } = useSitecore();
+  const isNormal = pageContext.pageState === 'normal';
+
   const src = imageField?.value?.src;
 
-  if (!page.mode.isNormal && src?.startsWith('/')) {
+  if (!isNormal && src?.startsWith('/')) {
     return `${window.location.protocol}//${window.location.hostname}${src}`;
   }
 

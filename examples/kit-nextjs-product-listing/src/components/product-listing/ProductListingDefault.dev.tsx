@@ -38,7 +38,7 @@ export const ProductListingDefault: React.FC<ProductListingProps> = (props) => {
     return (
       <div
         className={cn('@container transform-gpu border-b-2 border-t-2 [.border-b-2+&]:border-t-0', {
-          [props?.params?.styles]: props?.params?.styles,
+          [props?.params?.styles || '']: props?.params?.styles,
         })}
       >
         <div className="@md:px-6 @md:py-20 @lg:py-28 mx-auto max-w-screen-xl px-4 py-12">

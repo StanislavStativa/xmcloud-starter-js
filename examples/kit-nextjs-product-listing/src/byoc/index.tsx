@@ -1,4 +1,4 @@
-import React, { type JSX } from 'react';
+import React, { JSX } from 'react';
 import * as FEAAS from '@sitecore-feaas/clientside/react';
 import * as Events from '@sitecore-cloudsdk/events/browser';
 import '@sitecore/components/context';
@@ -24,15 +24,13 @@ FEAAS.enableNextClientsideComponents(dynamic, ClientBundle);
 import './index.hybrid';
 
 const BYOCInit = (): JSX.Element | null => {
-  const { page } = React.useContext(SitecoreProviderReactContext);
-  const { pageState } = page.layout.sitecore.context;
-
+  const pageContext = React.useContext(SitecoreProviderReactContext).pageContext;
   // Set context properties to be available within BYOC components
   FEAAS.setContextProperties({
     sitecoreEdgeUrl: config.api.edge?.edgeUrl,
     sitecoreEdgeContextId: config.api.edge?.contextId,
-    pageState: pageState || LayoutServicePageState.Normal,
-    siteName: page.siteName || config.defaultSite,
+    pageState: pageContext?.pageState || LayoutServicePageState.Normal,
+    siteName: pageContext?.site?.name || config.defaultSite,
     eventsSDK: Events,
   });
 

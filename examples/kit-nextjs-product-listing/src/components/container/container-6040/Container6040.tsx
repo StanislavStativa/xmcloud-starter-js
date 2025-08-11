@@ -11,9 +11,8 @@ import { cn } from '@/lib/utils';
 export const Default: React.FC<Container6040Props> = (props) => {
   const { rendering, left, right } = props;
 
-  const { page } = useSitecore();
-
-  const isPageEditing = page.mode.isEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing;
 
   const leftPlaceholders = getContainerPlaceholderProps('container-sixty-left', props.params);
   const rightPlaceholders = getContainerPlaceholderProps('container-forty-right', props.params);
@@ -32,7 +31,7 @@ export const Default: React.FC<Container6040Props> = (props) => {
     <section
       className={cn('container--6040', 'mt-4', {
         'mt-0': excludeTopMargin,
-        [props.params.styles]: props?.params?.styles,
+        [props.params.styles || '']: props?.params?.styles,
       })}
     >
       <Flex wrap="nowrap">

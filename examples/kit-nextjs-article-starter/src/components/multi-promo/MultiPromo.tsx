@@ -21,8 +21,8 @@ export const Default: React.FC<MultiPromoProps> = (props) => {
   const [api, setApi] = useState<CarouselApi>();
   const [announcement, setAnnouncement] = useState('');
   const carouselRef = useRef<HTMLDivElement>(null);
-  const { page } = useSitecore();
-  const isPageEditing = page.mode.isEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing;
   // General slide handling
   useEffect(() => {
     if (!api) return;
@@ -83,7 +83,7 @@ export const Default: React.FC<MultiPromoProps> = (props) => {
           'mx-auto my-8 max-w-screen-xl group-[.has-bg:not(.is-inset)]:my-4 group-[.container--full-bleed]:px-4 group-[.has-bg.is-inset]:px-0 md:my-16 md:group-[.has-bg:not(.is-inset)]:my-0 xl:group-[.container--full-bleed]:px-8',
           {
             'position-left': !hasPagesPositionStyles,
-            [props?.params?.styles]: props?.params?.styles,
+            [props?.params?.styles || '']: props?.params?.styles,
           }
         )}
       >

@@ -16,32 +16,32 @@ import { PageHeaderCentered } from './PageHeaderCentered.dev';
 
 // Default display of the component
 export const Default: React.FC<PageHeaderProps> = (props) => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing || false;
   return <PageHeaderDefault {...props} isPageEditing={isEditing} />;
 };
 
 // Variants
 export const BlueText: React.FC<PageHeaderProps> = (props) => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing || false;
   return <PageHeaderBlueText {...props} isPageEditing={isEditing} />;
 };
 
 export const FiftyFifty: React.FC<PageHeaderProps> = (props) => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing || false;
   return <PageHeaderFiftyFifty {...props} isPageEditing={isEditing} />;
 };
 
 export const BlueBackground: React.FC<PageHeaderProps> = (props) => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing || false;
   return <PageHeaderBlueBackground {...props} isPageEditing={isEditing} />;
 };
 
 export const Centered: React.FC<PageHeaderProps> = (props) => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing || false;
   return <PageHeaderCentered {...props} isPageEditing={isEditing} />;
 };

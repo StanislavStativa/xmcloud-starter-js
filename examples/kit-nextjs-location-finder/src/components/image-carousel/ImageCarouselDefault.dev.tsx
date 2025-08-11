@@ -85,7 +85,7 @@ export const ImageCarouselDefault = (props: ImageCarouselProps) => {
       <div
         className={cn(containerClasses, {
           'position-center': !hasPagesPositionStyles,
-          [props?.params?.styles]: props?.params?.styles,
+          [props?.params?.styles || '']: props?.params?.styles,
         })}
         data-component="ImageCarouselDefault"
       >

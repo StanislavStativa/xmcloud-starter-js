@@ -28,17 +28,17 @@ export const Default = ({
   const [imgSrc, setImgSrc] = useState({ src: '', width: 0, height: 0 });
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const { page } = useSitecore();
+  const { pageContext } = useSitecore();
   const getImageUrl = useCallback(
     (imageField: ImageField) => {
       const src = imageField?.value?.src;
-      if (!page.mode.isNormal && src?.startsWith('/')) {
+      if (pageContext.pageState !== 'normal' && src?.startsWith('/')) {
         return `${window.location.protocol}//${window.location.hostname}${src}`;
       }
 
       return src ? `${src.replace('http://cm/', '/')}` : '';
     },
-    [page]
+    [pageContext.pageState]
   );
   useEffect(() => {
     if (!elementRef.current) return;
@@ -77,7 +77,7 @@ export const Default = ({
         vidEl?.pause();
       }
     }
-  }, [image, isIntersecting, page, getImageUrl, pause, elementRef]);
+  }, [image, isIntersecting, getImageUrl, pause, elementRef]);
 
   if (!video && !image) return null;
 

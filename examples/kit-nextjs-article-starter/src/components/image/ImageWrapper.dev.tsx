@@ -21,9 +21,9 @@ type ImageWrapperProps = {
 
 export const Default: React.FC<ImageWrapperProps> = (props) => {
   const { image, className, wrapperClass, sizes, ...rest } = props;
-  const { page } = useSitecore();
-  const isPageEditing = page.mode.isEditing;
-  const isPreview = page?.mode.isPreview;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing;
+  const isPreview = pageContext.pageState === 'preview';
 
   const { unoptimized } = useContext(ImageOptimizationContext);
   const ref = useRef(null);

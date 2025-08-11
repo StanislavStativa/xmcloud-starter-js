@@ -20,7 +20,7 @@ type ImageProps = {
 };
 
 export const Banner = (props: ImageProps): JSX.Element => {
-  const { page } = useSitecore();
+  const { pageContext } = useSitecore();
   const { Image } = props.fields;
   const { TargetUrl } = props.fields;
   const sxaStyles = props.params?.Styles ?? '';
@@ -30,7 +30,7 @@ export const Banner = (props: ImageProps): JSX.Element => {
     return (
       <div className={classNameList}>
         <div className="component-content">
-          {page.mode.isEditing || !props.fields.TargetUrl?.value?.href ? (
+          {pageContext.pageEditing || !props.fields.TargetUrl?.value?.href ? (
             <ContentSdkImage field={Image} />
           ) : (
             <ContentSdkLink field={TargetUrl}>

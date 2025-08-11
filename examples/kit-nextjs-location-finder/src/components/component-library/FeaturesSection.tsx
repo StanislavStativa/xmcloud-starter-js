@@ -1507,8 +1507,8 @@ export const FeaturesSection22 = (props: FeatureSectionProps): JSX.Element => {
 };
 
 export const FeaturesSection23 = (props: FeatureSectionProps): JSX.Element => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing;
 
   const datasource = useMemo(() => props.fields.data.datasource, [props.fields.data.datasource]);
   const id = props.params.RenderingIdentifier;
@@ -1572,8 +1572,8 @@ export const FeaturesSection23 = (props: FeatureSectionProps): JSX.Element => {
 };
 
 export const FeaturesSection24 = (props: FeatureSectionProps): JSX.Element => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing;
 
   const datasource = useMemo(() => props.fields.data.datasource, [props.fields.data.datasource]);
   const id = props.params.RenderingIdentifier;

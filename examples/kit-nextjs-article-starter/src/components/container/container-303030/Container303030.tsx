@@ -23,9 +23,8 @@ type Container303030Props = ComponentProps &
 export const Default: React.FC<Container303030Props> = (props) => {
   const { rendering, left, center, right } = props;
 
-  const { page } = useSitecore();
-
-  const isPageEditing = page.mode.isEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing;
 
   const leftPlaceholder = getContainerPlaceholderProps('container-thirty-left', props.params);
   const centerPlaceholder = getContainerPlaceholderProps('container-thirty-center', props.params);
@@ -46,7 +45,7 @@ export const Default: React.FC<Container303030Props> = (props) => {
     <section
       className={cn('container--303030', 'mt-4', {
         'mt-0': excludeTopMargin,
-        [props.params.styles]: props?.params?.styles,
+        [props.params.styles || '']: props?.params?.styles,
       })}
     >
       <div className="w-full mx-auto max-w-[1760px] flex flex-wrap items-stretch">

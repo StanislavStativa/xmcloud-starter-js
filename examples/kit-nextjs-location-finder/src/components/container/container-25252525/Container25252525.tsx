@@ -20,9 +20,8 @@ export type Container25252525Props = ComponentProps & {
 export const Default: React.FC<Container25252525Props> = (props) => {
   const { rendering, col1, col2, col3, col4 } = props;
 
-  const { page } = useSitecore();
-
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing;
 
   const col1Placeholder = getContainerPlaceholderProps('container-25-one', props.params);
   const col2Placeholder = getContainerPlaceholderProps('container-25-two', props.params);
@@ -45,7 +44,7 @@ export const Default: React.FC<Container25252525Props> = (props) => {
     <section
       className={cn('container--25252525', 'mt-10', {
         'mt-0': excludeTopMargin,
-        [props.params.styles]: props?.params?.styles,
+        [props.params.styles || '']: props?.params?.styles,
       })}
     >
       <div className="w-full mx-auto max-w-[1760px] flex flex-wrap items-stretch">

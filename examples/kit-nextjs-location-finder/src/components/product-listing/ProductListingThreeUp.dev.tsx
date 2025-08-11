@@ -40,7 +40,7 @@ export const ProductListingThreeUp: React.FC<ProductListingProps> = (props) => {
         className={cn(
           '@container @md:px-6 mx-auto max-w-screen-xl border-b-2 border-t-2 py-12 [.border-b-2+&]:border-t-0',
           {
-            [props?.params?.styles]: props?.params?.styles,
+            [props?.params?.styles || '']: props?.params?.styles,
           }
         )}
         data-component="ProductListingThreeUp"

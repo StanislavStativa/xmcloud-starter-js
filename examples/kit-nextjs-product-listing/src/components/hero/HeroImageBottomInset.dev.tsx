@@ -40,7 +40,7 @@ export const HeroImageBottomInset: React.FC<HeroProps> = (props) => {
         <div
           className={cn('@md/herowrapper:py-16 group relative py-8', {
             'position-center': !hasPagesPositionStyles,
-            [props?.params?.styles]: props?.params?.styles,
+            [props?.params?.styles || '']: props?.params?.styles,
           })}
         >
           {/* Line */}

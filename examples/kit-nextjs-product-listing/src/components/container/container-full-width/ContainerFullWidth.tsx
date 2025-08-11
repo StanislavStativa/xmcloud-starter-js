@@ -6,9 +6,8 @@ import { cn } from '@/lib/utils';
 export const Default: React.FC<ContainerFullWidthProps> = (props) => {
   const { rendering, children } = props;
 
-  const { page } = useSitecore();
-
-  const isPageEditing = page.mode.isEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing;
   const PLACEHOLDER_FRAGMENT = 'container-fullwidth';
   const PLACEHOLDER_NAME = `${PLACEHOLDER_FRAGMENT}-${props.params.DynamicPlaceholderId}`;
   const isEmptyPlaceholder =
@@ -28,7 +27,7 @@ export const Default: React.FC<ContainerFullWidthProps> = (props) => {
       className={cn('@container container--full-width group', {
         'mt-0': excludeTopMargin,
         'mt-4': !excludeTopMargin,
-        [props.params.styles]: props?.params?.styles,
+        [props.params.styles || '']: props?.params?.styles,
       })}
     >
       <Flex className="group-[.is-inset]:p-0">

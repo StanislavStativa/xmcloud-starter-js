@@ -8,16 +8,16 @@ import { SubmissionFormCentered } from './SubmissionFormCentered.dev';
 // Default display of the component
 
 export const Default: React.FC<SubmissionFormProps> = (props) => {
-  const { page } = useSitecore();
-  const isPageEditing = page.mode.isEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.mode === 'editing';
 
   return <SubmissionFormDefault {...props} isPageEditing={isPageEditing} />;
 };
 
 // Variants
 export const Centered: React.FC<SubmissionFormProps> = (props) => {
-  const { page } = useSitecore();
-  const isPageEditing = page.mode.isEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.mode === 'editing';
 
   return <SubmissionFormCentered {...props} isPageEditing={isPageEditing} />;
 };

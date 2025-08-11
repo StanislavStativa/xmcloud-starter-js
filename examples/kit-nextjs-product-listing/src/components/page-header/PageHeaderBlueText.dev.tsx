@@ -45,7 +45,7 @@ export const PageHeaderBlueText: React.FC<PageHeaderProps & { isPageEditing: boo
           'bg-background text-primary-foreground group relative w-full overflow-hidden',
           {
             'position-left': !hasPagesPositionStyles,
-            [props?.params?.styles]: props?.params?.styles,
+            [props?.params?.styles || '']: props?.params?.styles,
           }
         )}
       >

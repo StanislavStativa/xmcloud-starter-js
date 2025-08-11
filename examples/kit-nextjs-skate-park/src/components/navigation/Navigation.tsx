@@ -46,7 +46,8 @@ const NavigationListItem: React.FC<NavigationListItemProps> = ({
   relativeLevel,
 }) => {
   const [isActive, setIsActive] = useState(false);
-  const { page } = useSitecore();
+const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing;
 
   const classNames = [...fields.Styles, `rel-level${relativeLevel}`, isActive ? 'active' : ''].join(
     ' '
@@ -70,7 +71,7 @@ const NavigationListItem: React.FC<NavigationListItemProps> = ({
         className={`navigation-title ${hasChildren ? 'child' : ''}`}
         onClick={() => setIsActive(!isActive)}
       >
-        <Link field={getLinkField(fields)} editable={page.mode.isEditing} onClick={handleClick}>
+        <Link field={getLinkField(fields)} editable={isPageEditing} onClick={handleClick}>
           {getTextContent(fields)}
         </Link>
       </div>
@@ -81,7 +82,8 @@ const NavigationListItem: React.FC<NavigationListItemProps> = ({
 
 export const Default = ({ params, fields }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { page } = useSitecore();
+const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing;
   const { styles, RenderingIdentifier: id } = params;
 
   if (!Object.values(fields).length) {
@@ -93,7 +95,7 @@ export const Default = ({ params, fields }: NavigationProps) => {
   }
 
   const handleToggleMenu = (event?: React.MouseEvent<HTMLElement>, forceState?: boolean) => {
-    if (event && page.mode.isEditing) {
+    if (event && isPageEditing) {
       event.preventDefault();
     }
 

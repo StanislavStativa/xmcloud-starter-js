@@ -28,12 +28,12 @@ export const Default = ({
   const [imgSrc, setImgSrc] = useState({ src: '', width: 0, height: 0 });
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const { page } = useSitecore();
-  const { mode } = page;
+  const { pageContext } = useSitecore();
+  const { mode } = pageContext;
   const getImageUrl = useCallback(
     (imageField: ImageField) => {
       const src = imageField?.value?.src;
-      if (!mode.isNormal && src?.startsWith('/')) {
+      if (mode !== 'editing' && src?.startsWith('/')) {
         return `${window.location.protocol}//${window.location.hostname}${src}`;
       }
 

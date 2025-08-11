@@ -1,4 +1,4 @@
-import { CdpHelper, useSitecore } from '@sitecore-content-sdk/nextjs';
+import { CdpHelper, LayoutServicePageState, useSitecore } from '@sitecore-content-sdk/nextjs';
 import { useEffect } from 'react';
 import { pageView } from '@sitecore-cloudsdk/events/browser';
 import config from 'sitecore.config';
@@ -12,9 +12,8 @@ import { JSX } from 'react';
  */
 const CdpPageView = (): JSX.Element => {
   const {
-    page: { layout, siteName, mode },
+    pageContext: { pageState, route, variantId, site },
   } = useSitecore();
-  const { route, context } = layout.sitecore;
 
   /**
    * Determines if the page view events should be turned off.
@@ -27,7 +26,7 @@ const CdpPageView = (): JSX.Element => {
 
   useEffect(() => {
     // Do not create events in editing or preview mode or if missing route data
-    if (!mode.isNormal || !route?.itemId) {
+    if (pageState !== LayoutServicePageState.Normal || !route?.itemId) {
       return;
     }
     // Do not create events if disabled (e.g. we don't have consent)
@@ -41,7 +40,7 @@ const CdpPageView = (): JSX.Element => {
     const pageVariantId = CdpHelper.getPageVariantId(
       route.itemId,
       language,
-      context.variantId as string,
+      variantId as string,
       scope
     );
     // there can be cases where Events are not initialized which are expected to reject
@@ -52,7 +51,7 @@ const CdpPageView = (): JSX.Element => {
       pageVariantId,
       language,
     }).catch((e) => console.debug(e));
-  }, [mode, route, context.variantId, siteName]);
+  }, [pageState, route, variantId, site]);
 
   return <></>;
 };

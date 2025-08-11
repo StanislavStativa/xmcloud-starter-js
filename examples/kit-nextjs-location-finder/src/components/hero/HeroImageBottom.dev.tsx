@@ -40,7 +40,7 @@ export const HeroImageBottom: React.FC<HeroProps> = (props) => {
         <div
           className={cn('@md/herowrapper:pt-16 group relative pt-8', {
             'position-center': !hasPagesPositionStyles,
-            [props?.params?.styles]: props?.params?.styles,
+            [props?.params?.styles || '']: props?.params?.styles,
           })}
         >
           <div

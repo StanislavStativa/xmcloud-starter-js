@@ -29,9 +29,9 @@ export const Default: React.FC<PageHeaderProps> = ({ fields, params }) => {
   const subtitle = pageSubtitle?.jsonValue;
 
   const { colorScheme = 'default', darkPlayIcon = '0' } = params;
-  const { page } = useSitecore();
+  const { pageContext } = useSitecore();
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const isPageEditing = page.mode.isEditing;
+  const isPageEditing = pageContext.pageEditing;
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');

@@ -41,7 +41,7 @@ export const SubmissionFormCentered: React.FC<SubmissionFormProps> = (props) => 
         data-class-change
         className={cn('@md:my-24 group my-12 w-full', {
           'position-center': !hasPagesPositionStyles,
-          [props?.params?.styles]: props?.params?.styles,
+          [props?.params?.styles || '']: props?.params?.styles,
         })}
       >
         <div className="@container/submissionform">

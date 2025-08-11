@@ -36,8 +36,8 @@ type LogoCloudProps = {
 };
 
 export const Default = (props: LogoCloudProps): JSX.Element => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing;
 
   return (
     <section

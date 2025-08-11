@@ -107,7 +107,7 @@ export const ImageCarouselFeaturedImageLeft = (props: ImageCarouselProps) => {
           '@container bg-background text-foreground group relative flex w-full flex-col items-center justify-center overflow-hidden py-[60px]',
           {
             'position-left': !hasPagesPositionStyles,
-            [props?.params?.styles]: props?.params?.styles,
+            [props?.params?.styles || '']: props?.params?.styles,
           }
         )}
         role="region"

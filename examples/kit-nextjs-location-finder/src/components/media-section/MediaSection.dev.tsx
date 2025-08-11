@@ -38,18 +38,18 @@ export const Default = ({
   const [imgSrc, setImgSrc] = useState({ src: '', width: 0, height: 0 });
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const { page } = useSitecore();
-  const { mode } = page;
+  const { pageContext } = useSitecore();
+  const isNormal = pageContext.pageState === 'normal';
   const getImageUrl = useCallback(
     (imageField: ImageField) => {
       const src = imageField?.value?.src;
-      if (!mode.isNormal && src?.startsWith('/')) {
+      if (!isNormal && src?.startsWith('/')) {
         return `${window.location.protocol}//${window.location.hostname}${src}`;
       }
 
       return src ? `${src.replace('http://cm/', '/')}` : '';
     },
-    [mode]
+    [isNormal]
   );
   useEffect(() => {
     if (!elementRef.current) return;

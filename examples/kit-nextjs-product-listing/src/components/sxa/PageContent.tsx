@@ -38,8 +38,8 @@ const ComponentContent = (props: ComponentContentProps) => {
 };
 
 export const Default = (props: PageContentProps): JSX.Element => {
-  const { page } = useSitecore();
-  const { route } = page.layout.sitecore;
+  const { pageContext } = useSitecore();
+  const { route } = pageContext;
   const id = props.params.RenderingIdentifier;
 
   if (!(props.fields && props.fields.Content) && !route?.fields?.Content) {
@@ -64,8 +64,8 @@ export const Default = (props: PageContentProps): JSX.Element => {
 };
 
 export const TitleAndBody = (props: PageContentProps): JSX.Element => {
-  const { page } = useSitecore();
-  const { route } = page.layout.sitecore;
+  const { pageContext } = useSitecore();
+  const { route } = pageContext;
 
   const fields = {
     title:

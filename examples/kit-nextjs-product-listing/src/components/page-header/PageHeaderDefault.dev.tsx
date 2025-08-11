@@ -43,7 +43,7 @@ export const PageHeaderDefault: React.FC<PageHeaderProps & { isPageEditing: bool
         data-class-change
         className={cn('bg-background text-foreground group w-full overflow-hidden', {
           'position-left': !hasPagesPositionStyles,
-          [props?.params?.styles]: props?.params?.styles,
+          [props?.params?.styles || '']: props?.params?.styles,
         })}
       >
         <div className="@container/headerwrapper">

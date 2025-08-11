@@ -6,9 +6,8 @@ import { cn } from '@/lib/utils';
 export const Default: React.FC<Container70Props> = (props) => {
   const { rendering, children } = props;
 
-  const { page } = useSitecore();
-
-  const isPageEditing = page.mode.isEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing;
 
   const PLACEHOLDER_FRAGMENT = 'container-seventy';
   const PLACEHOLDER_NAME = `${PLACEHOLDER_FRAGMENT}-${props.params.DynamicPlaceholderId}`;
@@ -31,7 +30,7 @@ export const Default: React.FC<Container70Props> = (props) => {
       className={cn({
         'mt-4': !excludeTopMargin,
         'mt-0': excludeTopMargin,
-        [props.params.styles]: props?.params?.styles,
+        [props.params.styles || '']: props?.params?.styles,
       })}
     >
       <Flex className="group-[.is-inset]:p-0">

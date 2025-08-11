@@ -42,7 +42,7 @@ export const HeroImageRight: React.FC<HeroProps> = (props) => {
             '@lg/herowrapper:max-w-[1440px] @lg/herowrapper:mx-auto @md/herowrapper:flex-row group flex min-h-[600px] flex-col',
             {
               'position-left': !hasPagesPositionStyles,
-              [props?.params?.styles]: props?.params?.styles,
+              [props?.params?.styles || '']: props?.params?.styles,
             }
           )}
         >

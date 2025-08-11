@@ -41,7 +41,8 @@ const ComponentContent = ({ id, styles = '', children }: ComponentContentProps):
 );
 
 export const Default = ({ params, fields }: TitleProps): JSX.Element => {
-  const { page } = useSitecore();
+const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing;
   const { styles, RenderingIdentifier: id } = params;
   const datasource = fields?.data?.datasource || fields?.data?.contextItem;
   const text: TextField = datasource?.field?.jsonValue || {};
@@ -54,7 +55,7 @@ export const Default = ({ params, fields }: TitleProps): JSX.Element => {
 
   return (
     <ComponentContent styles={styles} id={id}>
-      {page.mode.isEditing ? (
+      {isPageEditing ? (
         <Text field={text} />
       ) : (
         <Link field={link}>

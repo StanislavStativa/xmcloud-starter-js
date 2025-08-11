@@ -48,7 +48,7 @@ export const ProductListingDefault: React.FC<ProductListingProps> = (props) => {
     return (
       <div
         className={cn('@container transform-gpu border-b-2 border-t-2 [.border-b-2+&]:border-t-0', {
-          [props?.params?.styles]: props?.params?.styles,
+          [props?.params?.styles || '']: props?.params?.styles,
         })}
       >
         {isPageEditing && (

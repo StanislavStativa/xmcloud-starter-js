@@ -51,8 +51,8 @@ const getLinkField = (props: NavigationProps): LinkField => ({
 
 export const Default = (props: NavigationProps): JSX.Element => {
   const [isOpenMenu, openMenu] = useState(false);
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing;
   const styles =
     props.params != null
       ? `${props.params.GridParameters ?? ''} ${props.params.Styles ?? ''}`.trimEnd()
@@ -175,8 +175,8 @@ export const Header = (): JSX.Element => {
 };
 
 const NavigationList = (props: NavigationProps) => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing;
   const [active, setActive] = useState(false);
   const classNameList = `${props.fields.Styles.concat('rel-level' + props.relativeLevel).join(
     ' '

@@ -27,7 +27,7 @@ export const ImageGalleryFiftyFifty: React.FC<ImageGalleryProps> = (props) => {
         className={cn(
           '@container relative min-h-[100vh] max-w-screen-xl transform-gpu overflow-hidden px-4 py-16',
           {
-            [props?.params?.styles]: props?.params?.styles,
+            [props?.params?.styles || '']: props?.params?.styles,
           }
         )}
         data-class-change

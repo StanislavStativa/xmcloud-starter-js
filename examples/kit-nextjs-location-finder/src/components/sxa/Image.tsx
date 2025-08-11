@@ -30,8 +30,8 @@ const ImageDefault = (props: ImageProps): JSX.Element => (
 
 export const Banner = (props: ImageProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing;
   const classHeroBannerEmpty =
     isEditing && props.fields?.Image?.value?.class === 'scEmptyImage' ? 'hero-banner-empty' : '';
   const backgroundStyle = (props?.fields?.Image?.value?.src && {
@@ -58,8 +58,8 @@ export const Banner = (props: ImageProps): JSX.Element => {
 };
 
 export const Default = (props: ImageProps): JSX.Element => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing;
 
   if (props.fields) {
     const Image = () => <ContentSdkImage field={props.fields.Image} />;

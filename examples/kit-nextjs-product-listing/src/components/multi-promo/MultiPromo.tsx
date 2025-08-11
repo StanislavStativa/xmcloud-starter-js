@@ -72,7 +72,7 @@ export const Default: React.FC<MultiPromoProps> = (props) => {
     return (
       <div
         className={cn('component multi-promo my-8 md:my-16', {
-          [props?.params?.styles]: props?.params?.styles,
+          [props?.params?.styles || '']: props?.params?.styles,
         })}
       >
         <div className="flex flex-col gap-4 group-[.is-inset]:px-4 sm:group-[.is-inset]:px-0 xl:flex-row xl:items-end xl:justify-between xl:gap-20">

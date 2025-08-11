@@ -91,7 +91,7 @@ export const ImageCarouselPreviewBelow = (props: ImageCarouselProps) => {
       <div
         className={cn(containerClasses, {
           'position-center': !hasPagesPositionStyles,
-          [props?.params?.styles]: props?.params?.styles,
+          [props?.params?.styles || '']: props?.params?.styles,
         })}
         role="region"
         data-component="ImageCarouselPreviewBelow"

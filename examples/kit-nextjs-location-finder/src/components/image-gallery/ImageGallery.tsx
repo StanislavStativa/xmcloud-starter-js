@@ -11,37 +11,37 @@ import { ImageGalleryNoSpacing } from './ImageGalleryNoSpacing.dev';
 
 // Default display of the component
 export const Default: React.FC<ImageGalleryProps> = (props) => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing || false;
 
   return <ImageGalleryDefault {...props} isPageEditing={isEditing} />;
 };
 
 // Variants
 export const FiftyFifty: React.FC<ImageGalleryProps> = (props) => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing || false;
 
   return <ImageGalleryFiftyFifty {...props} isPageEditing={isEditing} />;
 };
 
 export const Grid: React.FC<ImageGalleryProps> = (props) => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing || false;
 
   return <ImageGalleryGrid {...props} isPageEditing={isEditing} />;
 };
 
 export const FeaturedImage: React.FC<ImageGalleryProps> = (props) => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing || false;
 
   return <ImageGalleryFeaturedImage {...props} isPageEditing={isEditing} />;
 };
 
 export const NoSpacing: React.FC<ImageGalleryProps> = (props) => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing || false;
 
   return <ImageGalleryNoSpacing {...props} isPageEditing={isEditing} />;
 };

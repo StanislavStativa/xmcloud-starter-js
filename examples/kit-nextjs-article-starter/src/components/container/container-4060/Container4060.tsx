@@ -21,10 +21,8 @@ type Container4060Props = ComponentProps &
 
 export const Default: React.FC<Container4060Props> = (props) => {
   const { rendering, left, right } = props;
-
-  const { page } = useSitecore();
-
-  const isPageEditing = page.mode.isEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing;
 
   const leftPlaceholders = getContainerPlaceholderProps('container-forty-left', props.params);
   const rightPlaceholders = getContainerPlaceholderProps('container-sixty-right', props.params);
@@ -43,7 +41,7 @@ export const Default: React.FC<Container4060Props> = (props) => {
     <section
       className={cn('container--4060', 'mt-4', {
         'mt-0': excludeTopMargin,
-        [props.params.styles]: props?.params?.styles,
+        [props.params.styles || '']: props?.params?.styles,
       })}
     >
       <Flex wrap="nowrap">

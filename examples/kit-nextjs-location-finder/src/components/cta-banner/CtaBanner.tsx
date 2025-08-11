@@ -58,8 +58,8 @@ type CtaBannerFields = {
 type CtaBannerProps = ComponentProps & CtaBannerFields & CtaBannerParams;
 
 export const Default: React.FC<CtaBannerProps> = (props) => {
-  const { page } = useSitecore();
-  const { isEditing } = page.mode;
+  const { pageContext } = useSitecore();
+  const isEditing = pageContext.pageEditing;
   const { fields, params } = props;
 
   if (fields) {

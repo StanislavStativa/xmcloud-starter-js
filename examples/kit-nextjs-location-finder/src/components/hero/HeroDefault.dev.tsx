@@ -41,7 +41,7 @@ export const HeroDefault: React.FC<HeroProps> = (props) => {
             '@lg/herowrapper:grid @lg/herowrapper:gap-0 @lg/herowrapper:my-36 @lg/herowrapper:max-w-[1216px] @lg/herowrapper:mx-10 @xl/herowrapper:mx-auto @lg/herowrapper:grid-cols-[33%_11%_23%_33%] @lg/herowrapper:grid-rows-[52px_auto_2px_auto_auto] group',
             {
               'position-left': !hasPagesPositionStyles,
-              [props?.params?.styles]: props?.params?.styles,
+              [props?.params?.styles || '']: props?.params?.styles,
             }
           )}
         >

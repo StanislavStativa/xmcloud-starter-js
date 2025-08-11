@@ -30,7 +30,7 @@ export const ImageGalleryNoSpacing: React.FC<ImageGalleryProps> = (props) => {
         className={cn(
           '@container relative min-h-[100vh] max-w-screen-xl overflow-hidden bg-black text-white',
           {
-            [props?.params?.styles]: props?.params?.styles,
+            [props?.params?.styles || '']: props?.params?.styles,
           }
         )}
         data-class-change

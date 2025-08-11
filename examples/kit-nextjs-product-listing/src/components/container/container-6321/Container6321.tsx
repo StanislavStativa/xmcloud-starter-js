@@ -21,9 +21,8 @@ export type Container6321Props = ComponentProps & {
 export const Default: React.FC<Container6321Props> = (props) => {
   const { rendering, col1, col2, col3, col4, col5, col6 } = props;
 
-  const { page } = useSitecore();
-
-  const isPageEditing = page.mode.isEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing;
 
   const col1Placeholder = getContainerPlaceholderProps('container-sixty-thirty-one', props.params);
   const col2Placeholder = getContainerPlaceholderProps('container-sixty-thirty-two', props.params);
@@ -53,7 +52,7 @@ export const Default: React.FC<Container6321Props> = (props) => {
     <section
       className={cn('container--6321', 'mt-10 bg-[#f5f5f5]', {
         'mt-0': excludeTopMargin,
-        [props.params.styles]: props?.params?.styles,
+        [props.params.styles || '']: props?.params?.styles,
       })}
     >
       <div className="w-full mx-auto max-w-[1760px] flex flex-wrap">

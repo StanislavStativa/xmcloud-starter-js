@@ -39,7 +39,7 @@ export const ProductListingSlider: React.FC<ProductListingProps> = (props) => {
     return (
       <div
         className={cn('@container transform-gpu border-b-2 border-t-2 [.border-b-2+&]:border-t-0', {
-          [props?.params?.styles]: props?.params?.styles,
+          [props?.params?.styles || '']: props?.params?.styles,
         })}
       >
         <div className="@md:py-20 @lg:py-28 py-12 ">

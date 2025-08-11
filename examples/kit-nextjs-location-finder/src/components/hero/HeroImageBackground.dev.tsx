@@ -40,7 +40,7 @@ export const HeroImageBackground: React.FC<HeroProps> = (props) => {
         <div
           className={cn('group relative', {
             'position-left': !hasPagesPositionStyles,
-            [props?.params?.styles]: props?.params?.styles,
+            [props?.params?.styles || '']: props?.params?.styles,
           })}
         >
           {/* Image */}

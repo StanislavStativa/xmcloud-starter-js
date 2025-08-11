@@ -77,7 +77,7 @@ export const ImageCarouselFullBleed = (props: ImageCarouselProps) => {
       <div
         className={cn(containerClasses, {
           'position-left': !hasPagesPositionStyles,
-          [props?.params?.styles]: props?.params?.styles,
+          [props?.params?.styles || '']: props?.params?.styles,
         })}
         data-class-change
         data-component="ImageCarouselFullBleed"

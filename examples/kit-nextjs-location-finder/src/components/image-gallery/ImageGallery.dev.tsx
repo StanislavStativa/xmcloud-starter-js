@@ -28,7 +28,7 @@ export const ImageGalleryDefault: React.FC<ImageGalleryProps> = (props) => {
       <div
         ref={containerRef}
         className={cn('@container group relative min-h-[100vh] max-w-screen-xl overflow-hidden', {
-          [props?.params?.styles]: props?.params?.styles,
+          [props?.params?.styles || '']: props?.params?.styles,
         })}
         data-class-change
       >

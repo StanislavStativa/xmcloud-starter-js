@@ -54,8 +54,8 @@ const ComponentContent = (props: ComponentContentProps) => {
 
 export const Default = (props: TitleProps): JSX.Element => {
   const datasource = props.fields?.data?.datasource || props.fields?.data?.contextItem;
-  const { page } = useSitecore();
-  const { mode } = page;
+  const { pageContext } = useSitecore();
+
   const text: TextField = datasource?.field?.jsonValue || {};
   const link: LinkField = {
     value: {
@@ -63,7 +63,7 @@ export const Default = (props: TitleProps): JSX.Element => {
       title: datasource?.field?.jsonValue?.value,
     },
   };
-  if (!mode.isNormal) {
+  if (pageContext.pageState !== 'normal') {
     link.value.querystring = `sc_site=${datasource?.url?.siteName}`;
     if (!text?.value) {
       text.value = 'Title field';

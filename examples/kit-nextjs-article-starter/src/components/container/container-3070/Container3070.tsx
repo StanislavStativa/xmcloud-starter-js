@@ -21,9 +21,8 @@ type Container3070Props = ComponentProps &
 export const Default: React.FC<Container3070Props> = (props) => {
   const { rendering, left, right } = props;
 
-  const { page } = useSitecore();
-
-  const isPageEditing = page.mode.isEditing;
+  const { pageContext } = useSitecore();
+  const isPageEditing = pageContext.pageEditing;
 
   const leftPlaceholders = getContainerPlaceholderProps('container-thirty-left', props.params);
   const rightPlaceholders = getContainerPlaceholderProps('container-seventy-right', props.params);
@@ -42,7 +41,7 @@ export const Default: React.FC<Container3070Props> = (props) => {
     <section
       className={cn('container--3070', 'mt-4', {
         'mt-0': excludeTopMargin,
-        [props.params.styles]: props?.params?.styles,
+        [props.params.styles || '']: props?.params?.styles,
       })}
     >
       <Flex wrap="nowrap">
