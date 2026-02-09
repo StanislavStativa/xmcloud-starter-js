@@ -1,3 +1,4 @@
+// trigger code extraction
 import { cva } from 'class-variance-authority';
 import { Text, Link, Field, LinkField } from '@sitecore-content-sdk/nextjs';
 import { Button } from '@/components/ui/button';
