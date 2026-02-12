@@ -1,3 +1,4 @@
+// Trigger code extraction
 import { cva } from 'class-variance-authority';
 import { Text, Link } from '@sitecore-content-sdk/nextjs';
 import { CtaBannerProps } from './cta-banner.props';
