@@ -19,7 +19,6 @@ export default defineCliConfig({
       }),
       writeImportMap({
         paths: ['src/components'],
-        exclude: ['src/components/ui/calendar.tsx', 'src/components/ui/chart.tsx'],
         scConfig,
       }),
     ],
